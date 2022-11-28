@@ -47,6 +47,13 @@ public class FindKthLargest {
     private final static Random random = new Random(System.currentTimeMillis());
 
     public int findKthLargest(int[] nums, int k) {
+        /*
+        思路：第K大的元素，在正序数组里的下标是len（数组长度）- k
+        如果快排基准点的下标 pivotIndex = len - k，那就找到了第K大的元素
+        如果 pivotIndex < len - k, 接下来在[pivotIndex + 1, right]里继续查找
+        如果 pivotIndex > len - k, 接下来在[left, pivotIndex - 1]里继续查找
+        逐渐缩小搜索的区间
+         */
         // 第1大的数，下标是len-1
         // 第2大的数，下标是len-2
         // 第k大的数，下标是len-k
